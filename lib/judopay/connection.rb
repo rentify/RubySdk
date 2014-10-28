@@ -24,13 +24,13 @@ module Judopay
         faraday.adapter :httpclient
         faraday.use Faraday::Request::UrlEncoded
         faraday.use Faraday::Response::Logger, Judopay.configuration.logger
-        faraday.use FaradayMiddleware::JudoMashify unless raw
+        faraday.use Judopay::FaradayMiddleware::Judoify unless raw
         unless raw
           case Judopay.configuration.format.to_s
           when 'json' then faraday.use Faraday::Response::ParseJson
           end
         end
-        faraday.use FaradayMiddleware::RaiseHttpException
+        faraday.use ::FaradayMiddleware::RaiseHttpException
       end
 
       # Authentication with basic auth if there is no OAuth2 access token
