@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activemodel', '>= 4.0'
   spec.add_dependency 'faraday', '~> 0.9'
   spec.add_dependency 'faraday_middleware', '~> 0.9'
-  spec.add_dependency 'hashie', '=2.1.1'
+  spec.add_dependency 'hashie', '>= 3.4.6'
   spec.add_dependency 'addressable', '=2.3.6'
 end
